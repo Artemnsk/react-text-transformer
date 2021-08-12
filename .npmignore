@@ -1,4 +1,5 @@
 src
 .eslintrc.json
 tsconfig.json
+jest.config.js
 .github
