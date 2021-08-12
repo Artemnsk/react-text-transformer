@@ -1,3 +1,1 @@
-import { Comp } from './comp'
-
-export const a = Comp
+export { TextTransformer } from './text-transformer'
