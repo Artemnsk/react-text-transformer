@@ -14,5 +14,5 @@
     "noUnusedLocals": true,
     "resolveJsonModule": true
   },
-  "exclude": ["node_modules", "lib", "src/*.test.tsx"]
+  "exclude": ["node_modules", "lib", "src/*.test.*"]
 }
