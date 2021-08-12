@@ -25,11 +25,11 @@ export const TextLike = {
 
 export interface TextMatcherPattern {
   pattern: RegExp
-  replacer?: (text: string) => string
+  replacer?: (text: string) => TextLike
   allowOtherPatterns?: boolean
   // If not set raw string will be used.
   // It still will be wrapped with Fragment if allowOtherPatterns = false.
-  Component?: React.ComponentType<{ children: string; originalMatch: string }>
+  Component?: React.ComponentType<{ children: TextLike; originalMatch: string }>
 }
 
 interface Props {

@@ -36,7 +36,7 @@ function transformStringByPattern(
               index,
             ].join('_')
             return React.createElement(Component, {
-              children: pattern.replacer ? pattern.replacer(s) : s,
+              children: (pattern.replacer ? pattern.replacer(s) : s) as TextLike,
               originalMatch: s,
               key,
             })
@@ -45,7 +45,7 @@ function transformStringByPattern(
         return s
       })
       .filter(i => !!i)
-    return mergeAdjacentStrings(result)
+    return mergeAdjacentStrings(result) as SingleTextLike[]
   }
 }
 

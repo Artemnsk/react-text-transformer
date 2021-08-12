@@ -2,7 +2,7 @@
   "name": "react-text-transformer",
   "version": "0.0.1",
   "description": "React component that transforms a string into \"text-like\" component(-s) as per custom transform criteria.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/Artemnsk/react-text-transformer.git",
   "author": "Artemnsk <shelkov1991@gmail.com>",
   "license": "MIT",
