@@ -1,1 +1,1 @@
-export { TextTransformer } from './text-transformer'
+export { TextTransformer, TextMatcherPattern } from './text-transformer'
