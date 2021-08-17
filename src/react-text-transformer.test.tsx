@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Fragment } from 'react'
 import { create } from 'react-test-renderer'
-import { TextTransformer } from './text-transformer'
+import { ReactTextTransformer } from './react-text-transformer'
 
 describe('Text Transformer', () => {
   test('Generally works with cascading elements', async () => {
@@ -17,7 +17,7 @@ describe('Text Transformer', () => {
     }
 
     const renderer = create(
-      <TextTransformer patterns={[pattern1, pattern2]}>
+      <ReactTextTransformer patterns={[pattern1, pattern2]}>
         toBeReplaced_1 untouched1
         <Fragment key='1'>
           untouched2
@@ -25,7 +25,7 @@ describe('Text Transformer', () => {
           <Fragment key='3'>toBeReplaced_1</Fragment>
           untouched3
         </Fragment>
-      </TextTransformer>,
+      </ReactTextTransformer>,
     )
 
     expect(renderer.toJSON()).toMatchObject([
@@ -52,9 +52,9 @@ describe('Text Transformer', () => {
     }
 
     const renderer = create(
-      <TextTransformer patterns={[pattern1, pattern2]}>
+      <ReactTextTransformer patterns={[pattern1, pattern2]}>
         toBeReplaced_1 untouchedText toBeReplaced_2
-      </TextTransformer>,
+      </ReactTextTransformer>,
     )
 
     expect(renderer.toJSON()).toMatchObject([
@@ -78,9 +78,9 @@ describe('Text Transformer', () => {
     }
 
     const renderer = create(
-      <TextTransformer patterns={[pattern1, pattern2]}>
+      <ReactTextTransformer patterns={[pattern1, pattern2]}>
         toBeReplaced_1 untouchedText toBeReplaced_2
-      </TextTransformer>,
+      </ReactTextTransformer>,
     )
 
     expect(renderer.toJSON()).toMatchObject([
@@ -109,9 +109,9 @@ describe('Text Transformer', () => {
     }
 
     const renderer = create(
-      <TextTransformer patterns={[pattern1, pattern2, pattern3]}>
+      <ReactTextTransformer patterns={[pattern1, pattern2, pattern3]}>
         toBeReplaced_1 toBeReplaced_2 untouched
-      </TextTransformer>,
+      </ReactTextTransformer>,
     )
 
     expect(renderer.toJSON()).toMatchObject(['wasReplaced_3', ' untouched'])
@@ -140,9 +140,9 @@ describe('Text Transformer', () => {
     }
 
     const renderer = create(
-      <TextTransformer patterns={[pattern1, pattern2]}>
+      <ReactTextTransformer patterns={[pattern1, pattern2]}>
         toBeReplaced_1 toBeReplaced_2
-      </TextTransformer>,
+      </ReactTextTransformer>,
     )
 
     expect(renderer.toJSON()).toMatchObject(['wasReplaced_1', ' ', 'wasReplaced_2'])
@@ -158,13 +158,13 @@ describe('Text Transformer', () => {
     const renderMoreButton = () => <Fragment>more</Fragment>
 
     const renderer = create(
-      <TextTransformer patterns={[pattern]} limit={20} renderMoreButton={renderMoreButton}>
+      <ReactTextTransformer patterns={[pattern]} limit={20} renderMoreButton={renderMoreButton}>
         012
         <Fragment key='1'>
           3456789
           <Fragment key='2'>toBeReplaced_1</Fragment>
         </Fragment>
-      </TextTransformer>,
+      </ReactTextTransformer>,
     )
 
     expect(renderer.toJSON()).toMatchObject(['012', '3456789', '0123456...', 'more'])
@@ -178,13 +178,13 @@ describe('Text Transformer', () => {
     }
 
     const renderer = create(
-      <TextTransformer patterns={[pattern]} limit={13}>
+      <ReactTextTransformer patterns={[pattern]} limit={13}>
         012
         <Fragment key='1'>{null}</Fragment>
         {null}
         <Fragment key='2'>{[null, null, 'toBeReplaced']}</Fragment>
         {'not visible'}
-      </TextTransformer>,
+      </ReactTextTransformer>,
     )
 
     expect(renderer.toJSON()).toMatchObject(['012', '', '', '', '', '3456789', '...'])

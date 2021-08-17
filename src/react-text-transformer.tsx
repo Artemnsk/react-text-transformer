@@ -41,7 +41,7 @@ interface Props {
   renderLessButton?: (onPress: () => void) => ReactElement
 }
 
-export const TextTransformer = React.memo((props: Props) => {
+export const ReactTextTransformer = React.memo((props: Props) => {
   const { children = '', patterns, limit, collapsed, renderMoreButton, renderLessButton } = props
 
   const [show, setShow] = useState(false)
