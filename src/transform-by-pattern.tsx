@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Fragment, ReactElement } from 'react'
-import { SingleTextLike, TextLike, TextMatcherPattern } from './text-transformer'
+import { SingleTextLike, TextLike, TextMatcherPattern } from './react-text-transformer'
 import { mergeAdjacentStrings } from './utils'
 
 function wasElementProcessedAndBlocked(element: ReactElement<{ children: TextLike }>): boolean {
@@ -36,7 +36,7 @@ function transformStringByPattern(
               index,
             ].join('_')
             return React.createElement(Component, {
-              children: (pattern.replacer ? pattern.replacer(s) : s) as TextLike,
+              children: pattern.replacer ? pattern.replacer(s) : s,
               originalMatch: s,
               key,
             })
@@ -45,7 +45,7 @@ function transformStringByPattern(
         return s
       })
       .filter(i => !!i)
-    return mergeAdjacentStrings(result) as SingleTextLike[]
+    return mergeAdjacentStrings(result)
   }
 }
 

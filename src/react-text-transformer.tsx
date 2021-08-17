@@ -25,11 +25,11 @@ export const TextLike = {
 
 export interface TextMatcherPattern {
   pattern: RegExp
-  replacer?: (text: string) => TextLike
+  replacer?: (text: string) => string
   allowOtherPatterns?: boolean
   // If not set raw string will be used.
   // It still will be wrapped with Fragment if allowOtherPatterns = false.
-  Component?: React.ComponentType<{ children: TextLike; originalMatch: string }>
+  Component?: React.ComponentType<{ children: string; originalMatch: string }>
 }
 
 interface Props {
@@ -41,7 +41,7 @@ interface Props {
   renderLessButton?: (onPress: () => void) => ReactElement
 }
 
-export const TextTransformer = React.memo((props: Props) => {
+export const ReactTextTransformer = React.memo((props: Props) => {
   const { children = '', patterns, limit, collapsed, renderMoreButton, renderLessButton } = props
 
   const [show, setShow] = useState(false)
