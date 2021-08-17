@@ -1,1 +1,1 @@
-export { TextTransformer, TextMatcherPattern } from './text-transformer'
+export { ReactTextTransformer, TextMatcherPattern } from './react-text-transformer'

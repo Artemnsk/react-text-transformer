@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Fragment, ReactElement } from 'react'
-import { SingleTextLike, TextLike } from './text-transformer'
+import { SingleTextLike, TextLike } from './react-text-transformer'
 
 const ellipsis = '...'
 function applyStringLimit(text: string, limit: number): { symbolsLeft: number; result: string } {
