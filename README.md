@@ -100,7 +100,7 @@ const urlPattern: TextMatcherPattern = {
 }
 ```
 
-Not output will be:
+Not output will be
 > Hello from artemnsk!You can reach me on `www.mydomain.com/artemnsk`.
 
 This time `artemnsk` URL path has no leading `@` character
