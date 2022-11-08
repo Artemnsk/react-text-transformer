@@ -1,6 +1,6 @@
 {
   "name": "react-text-transformer",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "React component that transforms a string into \"text-like\" component(-s) as per custom transform criteria.",
   "main": "lib/index.js",
   "repository": "https://github.com/Artemnsk/react-text-transformer.git",
@@ -34,9 +34,7 @@
     "ts-jest": "^29.0.3",
     "typescript": "^4.3.5"
   },
-  "dependencies": {
-    "lodash": "^4"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^16 || ^17 || ^18"
   }

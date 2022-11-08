@@ -1,4 +1,3 @@
-import { isArray } from 'lodash'
 import * as React from 'react'
 import { Fragment, ReactElement, useEffect, useState } from 'react'
 import { applyLimit } from './apply-limit'
@@ -19,7 +18,7 @@ export const TextLike = {
     )
   },
   isArray(element: TextLike): element is SingleTextLike[] {
-    return isArray(element)
+    return Array.isArray(element)
   },
 }
 
