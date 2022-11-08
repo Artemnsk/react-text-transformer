@@ -187,6 +187,6 @@ describe('Text Transformer', () => {
       </ReactTextTransformer>,
     )
 
-    expect(renderer.toJSON()).toMatchObject(['012', '', '', '', '', '3456789', '...'])
+    expect(renderer.toJSON()).toMatchObject(['012', '3456789', '...'])
   })
 })
