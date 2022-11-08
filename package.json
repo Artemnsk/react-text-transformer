@@ -1,6 +1,6 @@
 {
   "name": "react-text-transformer",
-  "version": "0.0.1",
+  "version": "1.1.0",
   "description": "React component that transforms a string into \"text-like\" component(-s) as per custom transform criteria.",
   "main": "lib/index.js",
   "repository": "https://github.com/Artemnsk/react-text-transformer.git",
@@ -15,29 +15,29 @@
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.0",
+    "@types/jest": "^29.2.2",
     "@types/lodash": "^4.14.172",
-    "@types/react": "^17.0.17",
-    "@types/react-test-renderer": "^17.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.29.1",
-    "@typescript-eslint/parser": "^4.29.1",
-    "eslint": "^7.32.0",
+    "@types/react": "^18.0.25",
+    "@types/react-test-renderer": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "eslint": "^8.27.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-typescript": "^0.14.0",
-    "jest": "^27.0.6",
+    "jest": "^29.3.0",
     "prettier": "^2.3.2",
-    "react": "^17.0.2",
-    "react-test-renderer": "^17.0.2",
+    "react": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
     "rimraf": "^3.0.2",
-    "semantic-release": "^17.4.4",
-    "ts-jest": "^27.0.4",
+    "semantic-release": "^19.0.5",
+    "ts-jest": "^29.0.3",
     "typescript": "^4.3.5"
   },
   "dependencies": {
     "lodash": "^4"
   },
   "peerDependencies": {
-    "react": "^16 || ^17"
+    "react": "^16 || ^17 || ^18"
   }
 }
