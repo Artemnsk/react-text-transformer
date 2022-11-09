@@ -1,17 +1,30 @@
 # react-text-transformer
 
-This package provides **ReactTextTransformer** component which parses text into
-react components as per provided patterns.
+This package provides **ReactTextTransformer** component which
+1. Parses text into react components as per provided RegExp patterns.
+2. Provides `limit` property to limit the amount of _post-processing_ characters to display.
+3. Provides properties to use a custom "show more"/"show less" buttons which turn `limit`-related functionality off/on.
 
-It is "platform agnostic" and applicable to both React web and React Native projects
-as it works with "text-like" children components: `string`s or React elements that have
-`string` or (again) "text-like" `children` property.
+# How it works
+
+The root idea of this package is that _all_ elements **ReactTextTransformer** wraps
+are `text-like`. It means that they can be
+1. string/number
+2. React Element with text-like `children` property.
+3. Array of the above types.
+
+The hypothesis is that all wrapped components use `children`
+property to pass a text which is supposed to be eventually displayed. That's why
+**ReactTextTransformer** always processed `children` and that's how it can
+apply `limit` (analysing `string`/`number` DOM leaves).
+
+It is "platform agnostic" and applicable to both React web and React Native projects.
 
 # Examples and how it works
 
 In this example user mentions (`@username`) will be found by regular expression
 and replaced by red-colored text with leading "@" removed:
-> Hello from artemnsk!You can reach me on `www.mydomain.com/artemnsk`.
+> Hello from artemnsk! You can reach me on `www.mydomain.com/artemnsk`.
 
 ```tsx
 import * as React from 'react'
@@ -32,9 +45,11 @@ const mentionPattern: TextMatcherPattern = {
   },
 }
 
+const patterns = [mentionPattern]
+
 function MyTextComponent() {
   return (
-    <ReactTextTransformer patterns={[mentionPattern]}>
+    <ReactTextTransformer patterns={patterns}>
       <Text>
         Hello from @artemnsk!
         <Text>You can reach me on www.mydomain.com/@artemnsk.</Text>
@@ -54,7 +69,7 @@ something else (in our case we remove the leading '@' symbol). Then the `replace
 goes component specified in `Component` property. And finally, React element
 produced by the `Component` will be put in place of the originally matched string.
 
-Returning to examples, it is also possible to use multiple patterns.
+Let's return to examples. It is also possible to use multiple patterns.
 In the next example we will transform `www.mydomain.com/*` URLs (with required path).
 Notice that `urlPattern` is the first pattern to apply, otherwise username will be processed
 first and wrapped with `<Text>...</Text>` as per `mentionPattern` specification.
@@ -100,7 +115,7 @@ const urlPattern: TextMatcherPattern = {
 }
 ```
 
-Not output will be
+Now output will be
 > Hello from artemnsk!You can reach me on `www.mydomain.com/artemnsk`.
 
 This time `artemnsk` URL path has no leading `@` character
